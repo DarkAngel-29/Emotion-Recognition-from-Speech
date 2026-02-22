@@ -5,6 +5,9 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
 from sklearn.metrics import accuracy_score
 import joblib
+from sklearn.metrics import confusion_matrix
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Load dataset
 X = np.load("data/features/X.npy")
@@ -42,13 +45,23 @@ svm = joblib.load("models/svm_model.pkl")
 print("Model Loaded successfully.")
 
 #accuracy part
-y_pred = svm.predict(X_test)
-accuracy = accuracy_score(y_test, y_pred)
-
-print("Test Accuracy:", accuracy)
 
 train_acc = svm.score(X_train, y_train)
 test_acc = svm.score(X_test, y_test)
 
 print("Train Accuracy:", train_acc)
 print("Test Accuracy:", test_acc)
+
+#confusion matrix part
+
+y_pred = svm.predict(X_test)
+cm = confusion_matrix(y_test, y_pred)
+
+print("Confusion Matrix:\n", cm)
+
+plt.figure(figsize=(8,6))
+sns.heatmap(cm, annot=True, fmt="d", cmap="Reds")
+plt.xlabel("Predicted")
+plt.ylabel("True")
+plt.title("Confusion Matrix - SVM")
+plt.show()

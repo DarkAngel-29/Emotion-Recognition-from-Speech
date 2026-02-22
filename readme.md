@@ -44,3 +44,7 @@ Make sure this path exists:
 data/audio/Actor_01/
 
 If yes — you're ready to continue with the project 🚀
+
+
+## 📊 Confution matrix
+![Confusion Matrix](src/Confusion_Matrix.png)
