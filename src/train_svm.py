@@ -8,6 +8,7 @@ import joblib
 from sklearn.metrics import confusion_matrix
 import matplotlib.pyplot as plt
 import seaborn as sns
+import os
 
 # Load dataset
 X = np.load("data/features/X.npy")
@@ -64,4 +65,10 @@ sns.heatmap(cm, annot=True, fmt="d", cmap="Reds")
 plt.xlabel("Predicted")
 plt.ylabel("True")
 plt.title("Confusion Matrix - SVM")
+
+#save the matrix
+os.makedirs("img", exist_ok=True)
+
+plt.savefig("img/confusion_matrix_svm.png", dpi=300, bbox_inches="tight")
+
 plt.show()
