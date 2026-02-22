@@ -78,4 +78,4 @@ If yes — you're ready to continue with the project 🚀
 
 
 ## 📊 Confution matrix
-![Confusion Matrix](img\confusion_matrix_svm.png)
+![Confusion Matrix](img/confusion_matrix_svm.png)
